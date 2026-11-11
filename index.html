@@ -222,10 +222,10 @@
       color: #000;
     }
 
-    /* カード内レイアウト（情報 ＋ 写真エリア） */
+    /* カード内レイアウト（PC・レスポンシブ） */
     .card-content-grid {
       display: grid;
-      grid-template-columns: 1fr 140px;
+      grid-template-columns: 1fr 160px;
       gap: 1.5rem;
       align-items: center;
     }
@@ -275,28 +275,25 @@
       line-height: 1.6;
     }
 
-    /* 固定表示用写真フレームのスタイル */
+    /* 写真表示用フレーム（スマホ・PC両対応レスポンシブ設定） */
     .photo-frame {
-      width: 140px;
-      height: 140px;
+      width: 100%;
+      max-width: 160px;
+      aspect-ratio: 1 / 1; /* 正方形に固定 */
       border: 1px solid rgba(212, 175, 55, 0.4);
       border-radius: 8px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      background: rgba(0, 0, 0, 0.3);
-      position: relative;
       overflow: hidden;
+      background: rgba(0, 0, 0, 0.5);
+      box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
       justify-self: center;
     }
 
     .photo-frame img {
       width: 100%;
       height: 100%;
-      object-fit: cover;
-      position: absolute;
-      top: 0;
-      left: 0;
+      object-fit: cover; /* 歪ませずに枠いっぱいにトリミング表示 */
+      object-position: center;
+      display: block;
     }
 
     /* Footer */
@@ -316,19 +313,21 @@
       margin-bottom: 0.5rem;
     }
 
+    /* スマホ表示用メディアクエリ */
     @media (max-width: 600px) {
       h1 { font-size: 1.7rem; }
       .declaration { padding: 1.2rem; }
       .award-card { padding: 1.2rem; }
       .year-tag { font-size: 1.2rem; }
       .info-value { font-size: 1.1rem; }
+      
       .card-content-grid {
-        grid-template-columns: 1fr;
+        grid-template-columns: 1fr; /* スマホでは上下並びに配置 */
+        gap: 1.5rem;
       }
       .photo-frame {
-        width: 100%;
-        height: 160px;
-        margin-top: 0.5rem;
+        max-width: 240px; /* スマホで見やすいように写真を少し大きめに拡大表示 */
+        margin: 0.5rem auto 0;
       }
     }
   </style>
@@ -390,7 +389,6 @@
               <p>朝倉壮哉「トマトはしょっぱかった。」</p>
             </div>
           </div>
-          <!-- 写真表示エリア (2025年) : srcに画像ファイル名を指定してください -->
           <div class="photo-frame">
             <img src="./photo/katsu_2025.jpg" alt="2025年度 受賞写真">
           </div>
