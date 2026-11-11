@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>【公式】黙認大忘年会 贈答品殿堂（Hall of Fame）</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700;900&family=Shippori+Mincho:wght@500;700;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-color: #0b0b0d;
+      --card-bg: linear-gradient(145deg, #18181c, #0f0f12);
+      --gold-primary: #d4af37;
+      --gold-light: #fff3a7;
+      --gold-dark: #aa7c11;
+      --gold-gradient: linear-gradient(135deg, #bf953f 0%, #fcf6ba 25%, #b38728 50%, #fbf5b7 75%, #aa771c 100%);
+      --silver-gradient: linear-gradient(135deg, #e0e0e0 0%, #ffffff 50%, #8a8a8a 100%);
+      --text-main: #e6e6e6;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      background-color: var(--bg-color);
+      color: var(--text-main);
+      font-family: 'Shippori Mincho', serif;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 2rem 1rem;
+      background-image: 
+        radial-gradient(circle at 50% 10%, rgba(212, 175, 55, 0.15) 0%, transparent 60%),
+        radial-gradient(circle at 50% 90%, rgba(170, 124, 17, 0.1) 0%, transparent 70%);
+      background-attachment: fixed;
+    }
+
+    .container {
+      width: 100%;
+      max-width: 800px;
+    }
+
+    /* Header Styling */
+    header {
+      text-align: center;
+      margin-bottom: 3rem;
+      padding: 2rem 1rem;
+      border-bottom: 2px solid;
+      border-image: var(--gold-gradient) 1;
+      position: relative;
+    }
+
+    .subtitle-en {
+      font-family: 'Cinzel', serif;
+      letter-spacing: 0.3em;
+      font-size: 0.9rem;
+      text-transform: uppercase;
+      background: var(--gold-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 0.5rem;
+    }
+
+    h1 {
+      font-size: 2.2rem;
+      font-weight: 900;
+      background: var(--gold-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      text-shadow: 0 0 25px rgba(212, 175, 55, 0.3);
+      letter-spacing: 0.1em;
+      margin-bottom: 0.8rem;
+    }
+
+    .badge {
+      display: inline-block;
+      padding: 0.3rem 1.2rem;
+      border: 1px solid var(--gold-primary);
+      border-radius: 50px;
+      font-size: 0.85rem;
+      color: var(--gold-light);
+      background: rgba(212, 175, 55, 0.08);
+      letter-spacing: 0.05em;
+    }
+
+    .logo-wrapper {
+      display: inline-block;
+      margin-bottom: 20px;
+    }
+    .group-logo {
+      max-width: 320px;
+      width: 100%;
+      height: auto;
+      display: block;
+      filter: 
+        drop-shadow(1px 0 0 #ffffff) 
+        drop-shadow(-1px 0 0 #ffffff) 
+        drop-shadow(0 1px 0 #ffffff) 
+        drop-shadow(0 -1px 0 #ffffff)
+        drop-shadow(1px 1px 0 #ffffff)
+        drop-shadow(-1px -1px 0 #ffffff)
+        drop-shadow(1px -1px 0 #ffffff)
+        drop-shadow(-1px 1px 0 #ffffff);
+    }
+
+    /* Declaration Banner */
+    .declaration {
+      background: linear-gradient(180deg, rgba(20, 20, 25, 0.8), rgba(10, 10, 12, 0.9));
+      border: 1px solid rgba(212, 175, 55, 0.3);
+      padding: 1.8rem;
+      border-radius: 8px;
+      margin-bottom: 3.5rem;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.7);
+      position: relative;
+    }
+
+    .declaration::before, .declaration::after {
+      content: '✦';
+      position: absolute;
+      color: var(--gold-primary);
+      font-size: 0.8rem;
+    }
+
+    .declaration::before { top: 10px; left: 12px; }
+    .declaration::after { bottom: 10px; right: 12px; }
+
+    .declaration h2 {
+      font-size: 1.1rem;
+      color: var(--gold-light);
+      text-align: center;
+      margin-bottom: 1rem;
+      letter-spacing: 0.15em;
+    }
+
+    .declaration p {
+      font-size: 0.95rem;
+      line-height: 1.8;
+      text-align: justify;
+      color: #cccccc;
+    }
+
+    /* Section Header */
+    .section-title {
+      font-size: 1.4rem;
+      text-align: center;
+      margin-bottom: 2rem;
+      color: var(--gold-light);
+      letter-spacing: 0.2em;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 1rem;
+    }
+
+    .section-title::before, .section-title::after {
+      content: '';
+      height: 1px;
+      width: 50px;
+      background: var(--gold-gradient);
+    }
+
+    /* Hall of Fame Cards */
+    .hof-list {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+
+    .award-card {
+      background: var(--card-bg);
+      border: 1px solid rgba(212, 175, 55, 0.4);
+      border-radius: 12px;
+      padding: 2rem;
+      position: relative;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.6);
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      overflow: hidden;
+    }
+
+    .award-card:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 12px 35px rgba(212, 175, 55, 0.2);
+    }
+
+    .award-card.gold-award {
+      border-color: rgba(212, 175, 55, 0.7);
+    }
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      padding-bottom: 1rem;
+      margin-bottom: 1.5rem;
+    }
+
+    .year-tag {
+      font-family: 'Cinzel', serif;
+      font-size: 1.5rem;
+      font-weight: 700;
+      background: var(--gold-gradient);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+    }
+
+    .rank-badge {
+      font-size: 0.9rem;
+      font-weight: 700;
+      padding: 0.3rem 0.8rem;
+      border-radius: 4px;
+      letter-spacing: 0.1em;
+    }
+
+    .rank-badge.gold {
+      background: var(--gold-gradient);
+      color: #000;
+    }
+
+    /* カード内レイアウト（情報 ＋ 写真エリア） */
+    .card-content-grid {
+      display: grid;
+      grid-template-columns: 1fr 140px;
+      gap: 1.5rem;
+      align-items: center;
+    }
+
+    .card-body {
+      display: flex;
+      flex-direction: column;
+      gap: 1.2rem;
+    }
+
+    .info-group {
+      display: flex;
+      flex-direction: column;
+      gap: 0.3rem;
+    }
+
+    .info-label {
+      font-size: 0.8rem;
+      color: #888888;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+    }
+
+    .info-value {
+      font-size: 1.2rem;
+      color: #ffffff;
+      font-weight: 700;
+    }
+
+    .info-value.winner {
+      color: var(--gold-light);
+      font-size: 1.3rem;
+    }
+
+    .review-box {
+      margin-top: 0.5rem;
+      background: rgba(0, 0, 0, 0.4);
+      border-left: 3px solid var(--gold-primary);
+      padding: 1rem;
+      border-radius: 0 6px 6px 0;
+    }
+
+    .review-box p {
+      font-style: italic;
+      color: #dddddd;
+      font-size: 0.95rem;
+      line-height: 1.6;
+    }
+
+    /* 固定表示用写真フレームのスタイル */
+    .photo-frame {
+      width: 140px;
+      height: 140px;
+      border: 1px solid rgba(212, 175, 55, 0.4);
+      border-radius: 8px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: rgba(0, 0, 0, 0.3);
+      position: relative;
+      overflow: hidden;
+      justify-self: center;
+    }
+
+    .photo-frame img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+    /* Footer */
+    footer {
+      margin-top: 4rem;
+      text-align: center;
+      padding: 2rem 0;
+      border-top: 1px solid rgba(255, 255, 255, 0.08);
+      color: #666666;
+      font-size: 0.85rem;
+      width: 100%;
+    }
+
+    footer .committee {
+      color: #999999;
+      letter-spacing: 0.15em;
+      margin-bottom: 0.5rem;
+    }
+
+    @media (max-width: 600px) {
+      h1 { font-size: 1.7rem; }
+      .declaration { padding: 1.2rem; }
+      .award-card { padding: 1.2rem; }
+      .year-tag { font-size: 1.2rem; }
+      .info-value { font-size: 1.1rem; }
+      .card-content-grid {
+        grid-template-columns: 1fr;
+      }
+      .photo-frame {
+        width: 100%;
+        height: 160px;
+        margin-top: 0.5rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <div class="container">
+    <header>
+      <div class="logo-wrapper">
+        <img src="MKNC_logo.png" alt="MKNC 黙認サークル ロゴ" class="group-logo">
+      </div>
+      <div class="subtitle-en">Worst Present Hall of Fame & Shame AWARDS</div>
+      <h1>黙認大忘年会 贈答品殿堂</h1>
+      <div class="badge">【公式不名誉記録台帳】</div>
+    </header>
+
+    <div class="declaration">
+      <h2>【 勅 旨 ・ 設 立 宣 言 】</h2>
+      <p>
+        最も「ひどい・扱いに困る・面白すぎる」残念な贈答品を供出し、一同の爆笑をさらった不名誉にして栄誉ある受賞者を永劫に後世へ伝えるための公式記録。
+      </p>
+    </div>
+
+    <div class="section-title">殿 堂 入 り 一 覧</div>
+
+    <div class="hof-list">
+
+      <!-- 2026年度 -->
+      <div class="award-card gold-award">
+        <div class="card-header">
+          <div class="year-tag">2026年度 殿堂入り</div>
+          <div class="rank-badge gold">🎁 予算3000円</div>
+        </div>
+        <div class="card-content-grid">
+          <div class="card-body">
+            <div style="color: #888; font-style: italic;">Coming Soon...</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- 2025年度 -->
+      <div class="award-card gold-award">
+        <div class="card-header">
+          <div class="year-tag">2025年度 殿堂入り</div>
+          <div class="rank-badge gold">🎁 予算3000円</div>
+        </div>
+        <div class="card-content-grid">
+          <div class="card-body">
+            <div class="info-group">
+              <span class="info-label">最低栄誉保持者</span>
+              <span class="info-value winner">髙橋 克徳</span>
+            </div>
+            <div class="info-group">
+              <span class="info-label">献上最低品目</span>
+              <span class="info-value">甘い高級トマト</span>
+            </div>
+            <div class="review-box">
+              <div class="info-label" style="margin-bottom: 0.3rem;">授受者 コメント</div>
+              <p>朝倉壮哉「トマトはしょっぱかった。」</p>
+            </div>
+          </div>
+          <!-- 写真表示エリア (2025年) : srcに画像ファイル名を指定してください -->
+          <div class="photo-frame">
+            <img src="./photo/katsu_2025.jpg" alt="2025年度 受賞写真">
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <footer>
+      <div class="committee">発行・管理：黙認大忘年会 実行委員会</div>
+      <div>&copy; 2026 Mokunin Year-End Party Hall of Fame. All Rights Reserved.</div>
+    </footer>
+  </div>
+
+</body>
+</html>
